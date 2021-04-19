@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>havila.dev</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+
 </head>
 <body>
-    <h1>Hey!</h1>
+    <div class="is-vector" id="scene">
+        <img data-depth="0.4" src="/img/placehold.svg" alt="" srcset="">
+    </div>
+    <div id="main">
+        
+        <div id="options">
+            <button>Toggle</button>
+        </div>
+
+        <div id="quotes">
+            <p id="quoteContent">
+                <q><i>
+                    Don't overthink it.
+                </i></q>
+            </p>
+            <p id="quoteAuthor">
+                <b>
+                - Julian Casablancas
+                </b>
+            </p>
+        </div>
+
+        <div id="menu">
+            <ul>
+                <li class="is-disabled">
+                    <a href="#">Projects</a>
+                </li>
+                <li class="is-disabled">
+                    <a href="#">About</a>
+                </li>
+                <!-- <li class="is-enabled"> -->
+                <li class="is-disabled">
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene);
+    </script>
+
 </body>
 </html>
