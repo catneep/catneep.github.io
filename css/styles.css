@@ -6,6 +6,7 @@
 :root{
     --background: #383838;
     --foreground: #fff;
+    --foreground-shine: #ffffffb0;
     --emphasis: #24A4FF;
     --disabled: #999;
 }
@@ -22,6 +23,7 @@ html, body{
 
 h1,h2{
     font-family: 'Rocket';
+    color: var(--foreground-shine);
 }
 
 h1{
@@ -124,6 +126,70 @@ h1{
     align-items: center;
 }
 
+#options > label{
+    margin-right: 1rem;
+}
+
 #quotes q{
     font-size: x-large;
+}
+/* Media queries */
+@media only screen and (max-width: 700px) {
+    #title{
+        display: flex;
+        margin: 0;
+        width: 100vw;
+        position: relative;
+        top: 14%;
+        left: 0;
+        
+    }
+
+    #title > .is-shiny{
+        min-width: 100vw;
+        text-align: center;
+    }
+
+    #quotes{
+        left: 5%;
+    }
+
+    #quotes q{
+        font-size: large;
+    }
+
+    #quotes > #quoteAuthor{
+        font-size: medium;
+    }
+
+    #menu{
+        left: 60%;
+    }
+
+    .is-vector img{
+        width: 80vw;;
+    }
+
+    #menu .is-enabled:hover{
+        text-align: center;
+        font-size: 2.5rem;
+        color: var(--emphasis);
+        transform: scale(1.2);
+    }
+}
+
+@media only screen and (max-width: 330px){
+    #menu{
+        left: 50%;
+    }
+
+    .is-vector img{
+        width: 70vw;;
+    }
+
+    #menu .is-enabled:hover{
+        text-align: center;
+        color: var(--emphasis);
+        transform: scale(1.05);
+    }
 }

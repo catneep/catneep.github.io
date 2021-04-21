@@ -1,5 +1,5 @@
 .is-shiny {
-    color: rgba(255, 255, 255, 0.69);
+    color: var(--foreground-shine);
 }
 
 .is-shiny:hover{
@@ -11,12 +11,14 @@
     );
     background: -moz-gradient(
         linear, left top, right top,
-        from(#222), to(#222),
+        from(#222),
+        to(#222),
         color-stop(0.7, #fff)
         );
     background: gradient(
         linear, left top, right top,
-        from(#222), to(#222),
+        from(#222),
+        to(#222),
         color-stop(0.7, #fff)
         );
     background-size: 4.5rem 100%;
