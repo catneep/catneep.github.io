@@ -7,6 +7,8 @@
     <title>havila.dev</title>
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/switch.css">
+    <link rel="stylesheet" href="css/shine.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -21,7 +23,10 @@
     <div id="main">
         
         <div id="options">
-            <button>Toggle</button>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </div>
 
         <div id="quotes">
@@ -37,6 +42,12 @@
             </p>
         </div>
 
+        <div id="title">
+            <h1 class="is-shiny">
+                h<span class="is-closer">av</span>ila.dev
+            </h1>
+        </div>
+
         <div id="menu">
             <ul>
                 <li class="is-disabled">
@@ -45,8 +56,8 @@
                 <li class="is-disabled">
                     <a href="#">About</a>
                 </li>
-                <!-- <li class="is-enabled"> -->
-                <li class="is-disabled">
+                <li class="is-enabled">
+                <!-- <li class="is-disabled"> -->
                     <a href="#">Contact</a>
                 </li>
             </ul>
@@ -54,8 +65,8 @@
     </div>
 
     <script>
-        var scene = document.getElementById('scene');
-        var parallaxInstance = new Parallax(scene);
+        let scene = document.getElementById('scene');
+        let parallaxInstance = new Parallax(scene);
     </script>
 
 </body>
