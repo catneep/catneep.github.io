@@ -23,20 +23,20 @@
     <div id="main">
         
         <div id="options">
-            <label class="switch" id="toggleDark">
+            <label class="switch" id="toggleDark" title="Toggle Dark Mode">
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
         </div>
 
         <div id="quotes">
-            <p id="quoteContent" class="has-shadow">
-                <q><i>
+            <p class="has-shadow">
+                <q><i id="quoteContent">
                     Don't overthink it.
                 </i></q>
             </p>
-            <p id="quoteAuthor">
-                <b>
+            <p>
+                <b id="quoteAuthor">
                 - Julian Casablancas
                 </b>
             </p>
@@ -65,7 +65,8 @@
     </div>
 
 
-    <script src="js/main.js"></script>
+    <script src="js/darkToggle.js"></script>
+    <script src="js/quotes.js"></script>
     <script>
         let scene = document.getElementById('scene');
         let parallaxInstance = new Parallax(scene);
