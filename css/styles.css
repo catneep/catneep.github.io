@@ -79,7 +79,7 @@ h1{
     font-size: x-large;
 }
 
-#quoteAuthor{
+.has-right-text,#quoteAuthor{
     text-align: right;
 }
 
@@ -124,7 +124,7 @@ h1{
     text-align: center;
     font-size: 3rem;
     color: var(--emphasis);
-    transform: scale(1.4);
+    transform: scale(1.2);
 }
 
 .is-disabled{
@@ -142,6 +142,17 @@ h1{
 
 #options > label{
     margin-right: 1rem;
+}
+
+#mail{
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.4em;
+    transition: 0.45s;
+}
+
+#mail:hover{
+    transform: scale(1.2);
 }
 
 /* Media queries */

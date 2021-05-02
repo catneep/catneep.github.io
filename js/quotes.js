@@ -7,6 +7,7 @@ let quotes = [
     new Quote("Don't overthink it.", "Julian Casablancas"),
     new Quote("Ding ding dong dong ding ding dong dong ding dang.", "Anthony Kiedis"),
     new Quote("Well!", "Isaac Brock"),
+    new Quote("Ello', I'm David Bowie", "David Bowie"),
     new Quote("Who was in Paris?", "Anonymous")
 ];
 
@@ -21,7 +22,7 @@ function setQuote(){
     let author = document.getElementById('quoteAuthor');
 
     quote.innerHTML = quotes[day].quote;
-    author.innerHTML = quotes[day].author;
+    author.innerHTML = "- " + quotes[day].author;
 }
 
 setQuote();
