@@ -1,76 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>havila.dev</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>havila.dev</title>
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/switch.css">
-    <link rel="stylesheet" href="css/shine.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/switch.css">
+  <link rel="stylesheet" href="css/shine.css">
+  <link rel="stylesheet" href="css/overlay.css">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script>
+    function overlayOn(){
+      var ov = document.getElementById('overlay');
+      ov.style.display = "block";
+    }
 
+    function overlayOff(){
+      var ov = document.getElementById('overlay');
+      ov.style.display = "none";
+    }
+  </script>
 </head>
 <body>
-    <div class="is-vector" id="scene">
-        <img data-depth="0.4" src="/img/placehold.svg" alt="" srcset="">
-    </div>
-    <div id="main">
-        
-        <div id="options">
-            <label class="switch" id="toggleDark" title="Toggle Dark Mode">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-        </div>
+  <div class="is-vector" id="scene">
+    <img data-depth="0.4" src="/img/placehold.svg" alt="" srcset="">
+  </div>
 
-        <div id="quotes">
-            <p class="has-shadow">
-                <q><i id="quoteContent">
-                    Don't overthink it.
-                </i></q>
-            </p>
-            <p>
-                <b id="quoteAuthor">
-                - Julian Casablancas
-                </b>
-            </p>
-        </div>
-
-        <div id="title">
-            <h1 class="is-shiny">
-                h<span class="is-closer">av</span>ila.dev
-            </h1>
-        </div>
-
-        <div id="menu">
-            <ul class="has-shadow">
-                <li class="is-disabled">
-                    <a href="#">Projects</a>
-                </li>
-                <li class="is-disabled">
-                    <a href="#">About</a>
-                </li>
-                <li class="is-enabled">
-                <!-- <li class="is-disabled"> -->
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
+  <div id="main">
+    <div id="options">
+      <label class="switch" id="toggleDark" title="Toggle Dark Mode">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
     </div>
 
+    <div id="quotes">
+      <p class="has-shadow">
+        <q><i id="quoteContent">
+          Don't overthink it.
+        </i></q>
+      </p>
+      <p class="has-right-text">
+        <b id="quoteAuthor">
+          - Julian Casablancas
+        </b>
+      </p>
+    </div>
 
-    <script src="js/darkToggle.js"></script>
-    <script src="js/quotes.js"></script>
-    <script>
-        let scene = document.getElementById('scene');
-        let parallaxInstance = new Parallax(scene);
-    </script>
+    <div id="title">
+      <h1 class="is-shiny">
+        h<span class="is-closer">av</span>ila.dev
+      </h1>
+    </div>
+
+    <div id="menu">
+      <ul class="has-shadow">
+        <li class="is-disabled">
+          <a href="#">Projects</a>
+        </li>
+        <li class="is-disabled">
+          <a href="#">About</a>
+        </li>
+        <li class="is-enabled" onclick="overlayOn()">
+        <!-- <li class="is-disabled"> -->
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="overlay" onclick="overlayOff()">
+    <div id="text">
+      <p>
+        For business inquiries:
+        <a id="mail" href="mailto:contact@havila.dev?subject=Hey!&body=Let's%20work%20together!">
+          contact@havila.dev
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/darkToggle.js"></script>
+  <script src="js/quotes.js"></script>
+  <script>
+    let scene = document.getElementById('scene');
+    let parallaxInstance = new Parallax(scene);
+  </script>
 
 </body>
 </html>
