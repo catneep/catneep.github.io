@@ -23,3 +23,31 @@
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
 }
+
+#text span{
+    opacity: 20%;
+}
+
+@media screen and (max-width: 740px) {
+    #text p,a{
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #text p,a{
+        font-size: 1.45rem;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    #text p,a{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #text p,a{
+        font-size: 1rem;
+    }
+}
