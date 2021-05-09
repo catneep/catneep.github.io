@@ -7,11 +7,11 @@ if ('content' in document.createElement('template')) {
     const template = document.querySelector('#template');
 
     // Clone the new row and insert it into the table
-    for (i = 0; i < 6; i++){
+    for (i = 0; i < 7; i++){
         let clone = template.content.cloneNode(true);
-        let p = clone.querySelectorAll("p");
-        p[0].textContent = `idolazo ${i + 7}`
-        p[1].textContent = `element: ${i}`;
+        let p = clone.querySelectorAll('h3');
+        p[0].textContent = `idolazo ${i + 1}`
+        // p[1].textContent = `element: ${i + 1}`;
 
         container.appendChild(clone);
     }
