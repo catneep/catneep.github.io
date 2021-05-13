@@ -15,21 +15,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="js/template.js"></script>
   <script>
     function overlayOn(){
-      var ov = document.getElementById('overlay');
+      const ov = document.getElementById('overlay');
       ov.style.display = "block";
     }
 
     function overlayOff(){
-      var ov = document.getElementById('overlay');
+      const ov = document.getElementById('overlay');
       ov.style.display = "none";
+    }
+
+    function displayProjects(){
+      const ov = document.getElementById('projects-overlay');
+      ov.classList.remove('hidden');
+      ov.classList.add('shown');
+      if (!drawn){
+        drawTemplates();
+      }
+    }
+
+    function hideProjects(){
+      const ov = document.getElementById('projects-overlay');
+      ov.classList.remove('shown');
+      ov.classList.add('hidden');
     }
   </script>
 </head>
 <body>
   <div class="is-vector" id="scene">
-    <img data-depth="0.4" src="/img/placehold.svg" alt="" srcset="">
+    <img
+      src="img/webBgBot.svg"
+      alt="Background Vector A"
+      width="1920"
+      height="1080"
+      data-depth="0.8"
+    />
+    <img
+      src="img/webBgMid.svg"
+      alt="Background Vector B"
+      width="1920"
+      height="1080"
+      data-depth="0.4"
+    />
+    <img
+      src="img/webBgTop.svg"
+      alt="Background Vector C"
+      width="1920"
+      height="1080"
+      data-depth="0.3"
+    />
   </div>
 
   <div id="main">
@@ -61,15 +97,14 @@
 
     <div id="menu">
       <ul class="has-shadow">
-        <li class="is-disabled">
-          <a href="#">Projects</a>
+        <li class="is-enabled" onclick="displayProjects()">
+          <a>Projects</a>
         </li>
         <li class="is-disabled">
           <a href="#">About</a>
         </li>
         <li class="is-enabled" onclick="overlayOn()">
-        <!-- <li class="is-disabled"> -->
-          <a href="#">Contact</a>
+          <a>Contact</a>
         </li>
       </ul>
     </div>
@@ -86,12 +121,38 @@
     </div>
   </div>
 
+  <div id="projects-overlay" class="hidden">
+    <div class="is-flex">
+      <h1>
+        Projects
+      </h1>
+      <button onclick="hideProjects()">
+        X
+      </button>
+    </div>
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <div id="projects">
+      <div id="project-list"></div>
+      <hr/>
+      <div id="project-info">
+        Project Info goes here
+      </div>
+    </div>
+  </div>
+
+  <template id="project-card-template">
+    <div class="project-card">
+      <div class="project-card-bg"></div>
+      <h3></h3>
+    </div>
+  </template>
+
   <script src="js/darkToggle.js"></script>
   <script src="js/quotes.js"></script>
-  <script>
+  <!-- <script>
     let scene = document.getElementById('scene');
     let parallaxInstance = new Parallax(scene);
-  </script>
+  </script> -->
 
 </body>
 </html>

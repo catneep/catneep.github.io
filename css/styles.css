@@ -9,6 +9,20 @@
     --foreground-shine: #ffffffb0;
     --emphasis: #24A4FF;
     --disabled: #999;
+    --stagger-delay: 100ms;
+}
+
+@keyframes card-entrance {
+    from{
+        opacity: 0;
+        transform: scale(0.3);
+        filter: hue-rotate(180deg);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+        filter: hue-rotate(0deg);
+    }
 }
 
 html, body{
@@ -20,6 +34,20 @@ html, body{
     overflow-y: hidden;
     overflow-x: hidden;
     transition: 0.6s ease-in-out;
+}
+
+hr{ 
+    width: 1px;
+    border: 0;
+    background:
+        -webkit-gradient(
+        linear,
+        0 0,
+        0 100%,
+        from(#383838),
+        to(#383838),
+        color-stop(50%, white)
+        );
 }
 
 h1,h2{
@@ -48,18 +76,20 @@ h1{
     position: absolute;
     width: 100%;
     height: 100%;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
+    filter: blur(3px);
+    overflow: hidden;
 }
 
 .is-vector img{
-    width: 60vh;
-    filter: blur(3px);
+    position: fixed;
 }
 
 #main{
     position: relative;
     height: 94vh;
+    width: 100%;
 }
 
 #quotes{
@@ -155,6 +185,129 @@ h1{
     transform: scale(1.2);
 }
 
+/* Project Overlay */
+
+#projects-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: #383838;
+    transition: 0.6s ease-in-out;
+}
+
+.is-flex{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.is-flex h1{
+    margin-left: 1rem;
+}
+
+.is-flex button{
+    margin-right: 1rem;
+}
+
+.hidden{
+    position: fixed;
+    top: 100vh;
+    opacity: 0;
+}
+
+.shown{
+    display: block;
+    position: fixed;
+    top: 0;
+    opacity: 100%;
+}
+
+#projects{
+    display: grid;
+    height: 70vh;
+    margin: 1em;
+    padding-bottom: 1%;
+    gap: 0;
+    grid-template-columns: 3fr 0.05fr 1.95fr;
+    grid-template-rows: 100%;
+}
+
+#project-info{
+    transition: 100ms ease-in-out;
+    background-color: lightcyan;
+}
+
+#project-list{
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+        'a a b c'
+        'a a d d'
+        'g f f e';
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.project-card-bg{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    filter: brightness(50%) blur(2px);
+    background-image: url(https://d25rq8gxcq0p71.cloudfront.net/dictionary-images/324/cat.jpg);
+    background-position: center;
+    background-size: cover;
+    transition: all 0.4s;
+}
+
+.project-card > .project-card-bg:hover{
+    transform: scale(1.2);
+    filter: brightness(100%) blur(0px);
+}
+
+.project-card > h3{
+    position: absolute;
+    color: white;
+}
+.project-card{
+    display: flex;
+    box-shadow: 5px 5px 10px #111;
+    text-shadow: 2px 1px 5px black;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: card-entrance 700ms ease-out;
+    animation-fill-mode: backwards;
+}
+.project-card:nth-child(1){
+grid-area: a;
+animation-delay: calc(1 * var(--stagger-delay));
+}
+.project-card:nth-child(2){
+grid-area: b;
+animation-delay: calc(2 * var(--stagger-delay));
+}
+.project-card:nth-child(3){
+grid-area: c;
+animation-delay: calc(3 * var(--stagger-delay));
+}
+.project-card:nth-child(4){
+grid-area: d;
+animation-delay: calc(4 * var(--stagger-delay));
+}
+.project-card:nth-child(5){
+grid-area: e;
+animation-delay: calc(5 * var(--stagger-delay));
+}
+.project-card:nth-child(6){
+grid-area: f;
+animation-delay: calc(6 * var(--stagger-delay));
+}
+.project-card:nth-child(7){
+grid-area: g;
+animation-delay: calc(7 * var(--stagger-delay));
+}
+
+
 /* Media queries */
 @media only screen and (max-width: 900px) {
     #title{
@@ -188,8 +341,14 @@ h1{
         left: 60%;
     }
 
+    .is-vector{
+        overflow: hidden;
+    }
+
     .is-vector img{
-        width: 80vw;;
+        max-height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     #menu .is-enabled:hover{
@@ -206,7 +365,9 @@ h1{
     }
 
     .is-vector img{
-        width: 70vw;;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     #menu .is-enabled:hover{
