@@ -16,7 +16,7 @@ function toggleDark(){
             r.style.setProperty('--foreground', '#111');
             r.style.setProperty('--foreground-shine', '#111b0');
         } else {
-            r.style.setProperty('--background', '#383838');
+            r.style.setProperty('--background', '#131313');
             r.style.setProperty('--foreground', '#fff');
             r.style.setProperty('--foreground-shine', '#ffffffb0');
         }
