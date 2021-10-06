@@ -14,34 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
+  <script src="js/main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
   <script src="js/template.js"></script>
-  <script>
-    function overlayOn(){
-      const ov = document.getElementById('overlay');
-      ov.style.display = "block";
-    }
-
-    function overlayOff(){
-      const ov = document.getElementById('overlay');
-      ov.style.display = "none";
-    }
-
-    function displayProjects(){
-      const ov = document.getElementById('projects-overlay');
-      ov.classList.remove('hidden');
-      ov.classList.add('shown');
-      if (!drawn){
-        drawTemplates();
-      }
-    }
-
-    function hideProjects(){
-      const ov = document.getElementById('projects-overlay');
-      ov.classList.remove('shown');
-      ov.classList.add('hidden');
-    }
-  </script>
 </head>
 <body>
   <div class="is-vector" id="scene">
@@ -97,7 +72,7 @@
 
     <div id="menu">
       <ul class="has-shadow">
-        <li class="is-disabled">
+        <li class="is-enabled" onclick="displayProjects()">
           <a>Projects</a>
         </li>
         <li class="is-disabled">
@@ -126,7 +101,7 @@
       <h1>
         Projects
       </h1>
-      <button onclick="hideProjects()">
+      <button class="x" onclick="hideProjects()" aria-label="Close Overlay">
         X
       </button>
     </div>
@@ -134,11 +109,47 @@
     <div id="projects">
       <div id="project-list"></div>
       <hr/>
-      <div id="project-info">
-        Project Info goes here
-      </div>
+      <aside id="project-info">
+        <header>
+            <h2>
+                Details
+            </h2>
+        </header>
+        <article>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, dolore quae numquam asperiores quos deserunt ea porro alias et? Enim facere culpa laborum distinctio voluptatem pariatur ut, corporis perferendis quae.
+                <br>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut tempore deleniti fugit et sunt aliquam, velit blanditiis iste ad asperiores ipsam iusto eum sapiente sed exercitationem esse? Doloribus, repellendus aperiam.
+                <br>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut tempore deleniti fugit et sunt aliquam, velit blanditiis iste ad asperiores ipsam iusto eum sapiente sed exercitationem esse? Doloribus, repellendus aperiam.
+            </p>
+        </article>
+        <div id="tech">
+            <h4>
+                Technologies Used
+            </h4>
+            <hr/>
+        </div>
+        <section>
+            <div class="tech-icon">
+                <img src="https://seeklogo.com/images/H/html5-without-wordmark-color-logo-14D252D878-seeklogo.com.png" alt="html">
+            </div>
+            <div class="tech-icon">
+                <img src="https://w7.pngwing.com/pngs/509/571/png-transparent-cascading-style-sheets-logo-css3-html-web-development-world-wide-web-blue-angle-web-design.png" alt="css">
+            </div>
+        </section>
+        <footer>
+            Coverflow goes here
+        </footer>
+      </aside>
     </div>
   </div>
+
+  <template id="tech-icon-template">
+    <div class="tech-icon">
+        <img src="https://seeklogo.com/images/H/html5-without-wordmark-color-logo-14D252D878-seeklogo.com.png" alt="html">
+    </div>
+  </template>
 
   <template id="project-card-template">
     <div class="project-card">
