@@ -8,6 +8,7 @@ let quotes = [
     new Quote("Ding ding dong dong ding ding dong dong ding dang.", "Anthony Kiedis"),
     new Quote("Well!", "Isaac Brock"),
     new Quote("Ello', I'm David Bowie", "David Bowie"),
+    new Quote("Y volver volver, volver...", "Vicente Fernandez"),
     new Quote("Who was in Paris?", "Anonymous")
 ];
 
