@@ -15,8 +15,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
   <script src="js/main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
   <script src="js/template.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 </head>
 <body>
   <div class="is-vector" id="scene">
@@ -51,7 +52,7 @@
       </label>
     </div>
 
-    <div id="quotes">
+    <aside id="quotes">
       <p class="has-shadow">
         <q><i id="quoteContent">
           Don't overthink it.
@@ -62,23 +63,24 @@
           - Julian Casablancas
         </b>
       </p>
-    </div>
+    </aside>
 
-    <div id="title">
+    <header id="title">
       <h1 class="is-shiny">
         h<span class="is-closer">av</span>ila.dev
       </h1>
-    </div>
+    </header>
 
-    <div id="menu">
+    <nav id="menu">
       <ul class="has-shadow">
-        <li class="is-enabled" onclick="displayProjects()">
+        <!-- <li class="is-enabled" onclick="displayProjects()"> -->
+        <li class="is-disabled">
           <a>
             Projects
           </a>
         </li>
         <li class="is-disabled">
-          <a href="#">
+          <a>
             About
           </a>
         </li>
@@ -88,7 +90,15 @@
           </a>
         </li>
       </ul>
-    </div>
+    </nav>
+  </div>
+
+  <div id="doge" title="gimme doge">
+    <figure>
+      <a href="https://dogechain.info/address/D8jvWqyR6W2BWXNw4x2SdP2657QXT3kesJ" target="_blank" rel="noreferrer">
+        <img src="img/doge.svg" alt="doge">
+      </a>
+    </figure>
   </div>
 
   <div id="overlay" onclick="overlayOff()">
@@ -102,7 +112,7 @@
     </div>
   </div>
 
-  <div id="projects-overlay" class="hidden">
+  <section id="projects-overlay" class="hidden">
     <div class="is-flex">
       <h1>
         Projects
@@ -149,7 +159,7 @@
         </footer>
       </aside>
     </div>
-  </div>
+  </section>
 
   <template id="tech-icon-template">
     <div class="tech-icon">
