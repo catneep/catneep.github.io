@@ -102,6 +102,7 @@ h1{ font-size: 3rem; }
 
 #quotes{
     display: block;
+    cursor: default;
     position: absolute;
     max-width: 18rem;
     top: 28%;
@@ -115,12 +116,42 @@ h1{ font-size: 3rem; }
 
 .has-right-text,#quoteAuthor{ text-align: right; }
 
+#doge{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 30%;
+    transition: 0.3s;
+}
+
+#doge:hover{
+    opacity: 100%;
+}
+
+#doge svg > path{
+    fill: var(--foreground);
+}
+
+/* #doge svg g path{
+    fill: red;
+} */
+
+#doge > figure img{
+    width: 5rem;
+    height: auto;
+}
+
 #title{
     display: block;
     position: absolute;
     max-width: 18rem;
     top: 14%;
     left: 64%;
+    cursor: default;
 }
 
 #menu{
@@ -273,7 +304,6 @@ h1{ font-size: 3rem; }
     margin: 0;
     margin-right: 0.2em;
     height: 100%;
-    width: 2.2em;
     text-align: center;
     background-color: #24A4FF;
 }
