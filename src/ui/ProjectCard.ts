@@ -110,7 +110,8 @@ export default class ProjectCard implements ISubscriber {
       icon.target = "_blank";
       i % 2 === 0 ? (icon.innerHTML = "🌐") : (icon.innerHTML = "💻");
 
-      if (url !== "") container.appendChild(icon);
+      if (url !== null && url !== "")
+        container.appendChild(icon);
     });
 
     header.appendChild(container);
