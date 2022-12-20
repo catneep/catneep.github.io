@@ -1,0 +1,23 @@
+@import "../variables";
+@import "../mixins/animations";
+
+#modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10 !important;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background;
+  display: none;
+}
+
+#closeModal {
+  background: none;
+  border: none;
+  color: lightgray;
+  font-family: "Rocket";
+  font-size: 3em;
+  padding: 0 14px;
+  @include zoomable;
+}

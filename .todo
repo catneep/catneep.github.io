@@ -1,0 +1,15 @@
+Functionality
+    ✔ Fecth data from API @done (08/12/2022, 22:49:43)
+
+Looks
+    ✔ Add general markup @done (10/12/2022, 15:16:01)
+        ✔ Add contact content @done (10/12/2022, 15:16:17)
+        ☐ Add 'About' content
+    ✔ Format languages object @done (10/12/2022, 15:16:25)
+    ✘ Style project container @cancelled (10/12/2022, 15:16:32)
+    ✔ Styling in general lol @done (12/19/2022, 6:38:14 PM)
+        ✔ Style that pesky close button @done (12/19/2022, 8:06:38 PM)
+        ☐ Fix modal spacing (overflow)
+    ✘ Create cool vector background @cancelled (12/19/2022, 8:07:02 PM)
+    ✔ Add cool blob background @done (12/19/2022, 8:07:13 PM)
+    ☐ Parallax?

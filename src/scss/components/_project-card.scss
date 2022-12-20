@@ -1,0 +1,80 @@
+@import "../mixins/animations";
+
+.project-card {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 3fr auto;
+  gap: 0px 0px;
+  position: relative;
+  background-color: #282c34;
+  border-radius: 1.6em;
+  padding: 1em 0 0 0;
+  margin: 1em;
+  overflow: hidden;
+  transition: 0.3s;
+
+  header {
+    display: flex;
+    padding: 0 1em;
+    height: fit-content;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      font-size: 1.6rem;
+    }
+
+    span {
+      &:nth-child(1) {
+        cursor: default;
+        font-weight: 600;
+        font-size: 1.4rem;
+      }
+
+      &:nth-child(2) {
+        a {
+          text-decoration: none;
+          font-size: 1.6rem;
+          @include zoomable;
+        }
+      }
+    }
+  }
+
+  section {
+    padding: 0 1em;
+    font-style: italic;
+    overflow-y: auto;
+  }
+
+  footer {
+    color: transparent;
+    min-height: 0.45rem;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-size: 0;
+      height: 100%;
+      transition: 0.3s;
+
+      li {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        height: 100%;
+        text-shadow: 2px 2px 5px black;
+      }
+    }
+
+    &:hover {
+      height: 1.4rem;
+      color: white;
+      ul {
+        font-size: 1rem;
+      }
+    }
+  }
+}

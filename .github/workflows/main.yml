@@ -1,0 +1,44 @@
+name: Compile and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Run webpack 🌐
+      run: |
+        npm install
+        npx webpack
+    - name: Create static folder structure 📂
+      run: |
+        mkdir css
+        mkdir dist
+    - name: Compile SCSS 🎨
+      uses: gha-utilities/sass-build@v0.4.10
+      with:
+        source: ./src/scss/main.scss
+        destination: ./css/styles.css
+    - name: Build deployment 🛠
+      run: |
+        mv ./css ./src ./fonts index.html main.js ./dist
+        touch ./dist/.nojekyll
+    - name: Deploy to Pages 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.4.1
+      with:
+        folder: dist
