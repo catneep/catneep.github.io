@@ -1,0 +1,8 @@
+@mixin zoomable {
+  position: relative;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

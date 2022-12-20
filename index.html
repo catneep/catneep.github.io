@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio 3</title>
+    <style>
+      @font-face {
+        font-family: "Rocket";
+        src: url("/fonts/rocketWilderness.otf") format("opentype");
+        fallback: sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/kute.js@2.2.4/dist/kute.min.js"></script>
+  </head>
+  <body>
+    <div id="background">
+      <svg
+        id="visual"
+        viewBox="0 0 900 675"
+        width="900"
+        height="675"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+      >
+        <g transform="translate(477.3107687309574 297.0789951330553)">
+          <path
+            id="blob-a"
+            d="M155.3 -175.2C194.8 -151.8 216.1 -96.8 214.3 -46.7C212.5 3.4 187.7 48.7 162.2 94.5C136.8 140.3 110.8 186.7 64.8 222.9C18.8 259 -47.2 285 -89.5 262.4C-131.8 239.9 -150.3 168.7 -186.8 107.1C-223.4 45.5 -277.9 -6.6 -267.8 -44.4C-257.7 -82.2 -183.1 -105.7 -127.7 -126.3C-72.3 -146.9 -36.2 -164.4 10.8 -177.4C57.9 -190.3 115.7 -198.6 155.3 -175.2"
+            fill="#5e85ff"
+          ></path>
+        </g>
+        <g
+          transform="translate(438.9916912500732 318.70490371625175)"
+          style="visibility: hidden"
+        >
+          <path
+            id="blob-b"
+            d="M155.7 -162.6C211.1 -139 271.7 -98.8 279.1 -50.2C286.5 -1.6 240.7 55.5 197.4 98.4C154.1 141.4 113.3 170.3 65.6 193.4C17.9 216.4 -36.7 233.7 -86 222C-135.4 210.3 -179.4 169.6 -213.1 119.2C-246.8 68.8 -270.1 8.5 -251 -34.5C-231.8 -77.6 -170.1 -103.4 -121.2 -128.1C-72.3 -152.9 -36.2 -176.4 7 -184.8C50.1 -193.1 100.3 -186.2 155.7 -162.6"
+            fill="#5e85ff"
+          ></path>
+        </g>
+      </svg>
+    </div>
+    <div id="title-and-nav">
+      <div>
+        <header id="logo">
+          <h1>HAVILA.DEV</h1>
+        </header>
+        <nav>
+          <ul id="navigation"></ul>
+        </nav>
+      </div>
+    </div>
+    <main id="modal">
+      <header>
+        <button id="closeModal">&lt;&lt;</button>
+      </header>
+      <div id="projects">
+        <main></main>
+      </div>
+      <div id="about"></div>
+      <div id="contact">
+        <p>
+          For business inquiries:
+          <a
+            id="mail"
+            target="_blank"
+            href="mailto:contact@havila.dev?subject=Hey&body=Hello%20there!"
+          >
+            <span>&lt;</span>contact@havila.dev<span>/&gt;</span>
+          </a>
+        </p>
+      </div>
+    </main>
+
+    <script>
+      const tween = KUTE.fromTo(
+        "#blob-a",
+        { path: "#blob-a" },
+        { path: "#blob-b" },
+        { repeat: 999, duration: 10 * 1000, yoyo: true }
+      );
+      tween.start();
+    </script>
+  </body>
+</html>

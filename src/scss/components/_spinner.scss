@@ -1,0 +1,53 @@
+$keyframe-unit: 36px;
+$dimensions: 80px;
+$outline: calc(#{$dimensions} / 20);
+
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: $dimensions;
+  height: $dimensions;
+
+  div {
+    position: absolute;
+    border: $outline solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: spinner 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+
+  div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    top: $keyframe-unit;
+    left: $keyframe-unit;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: $keyframe-unit;
+    left: $keyframe-unit;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: $keyframe-unit;
+    left: $keyframe-unit;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: calc(#{$keyframe-unit} * 2);
+    height: calc(#{$keyframe-unit} * 2);
+    opacity: 0;
+  }
+}

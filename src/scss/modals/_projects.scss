@@ -1,0 +1,16 @@
+#projects {
+  height: 100%;
+}
+
+#projects > main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 0px 0px;
+  height: 100%;
+  overflow-y: auto;
+
+  .project-card {
+    height: 10rem;
+  }
+}
