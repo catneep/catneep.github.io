@@ -16,10 +16,12 @@ async function main(): Promise<void> {
   projects.map((project_data) => {
     console.log(project_data);
     const project = new Project(project_data);
+
     console.log("created Project:", project);
-    project.drawSubscribers({
-      container: projectContainer,
-    });
+    if (project.name !== "catneep")
+      project.drawSubscribers({
+        container: projectContainer,
+      });
   });
 }
 
