@@ -5,12 +5,19 @@ interface ILanguage {
   url: string;
 }
 
+let COLORS: Record<string, ILanguage> | null = null;
+
 async function GetGithubColors(): Promise<Record<string, ILanguage>> {
+  if (COLORS !== null)
+    return COLORS;
+
   const json = (await fetchJson(
     // Thnx to ozh on github
     "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
   )) as Record<string, ILanguage>;
-  return json;
+  COLORS = json;
+
+  return COLORS;
 }
 
 export async function getLanguageColor(language: string = ""): Promise<string> {

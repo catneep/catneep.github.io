@@ -1,0 +1,15 @@
+@mixin shadow {
+  text-shadow: 5px 5px 5px black;
+}
+
+@mixin text-border {
+  text-shadow:
+    // 2px 0 #000,
+    // -2px 0 #000,
+    // 0 2px #000,
+    // 0 -2px #000,
+    1px 1px #202020,
+    -1px -1px #202020,
+    1px -1px #202020,
+    -1px 1px #202020;
+}
