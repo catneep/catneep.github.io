@@ -36,7 +36,7 @@ jobs:
         destination: ./css/styles.css
     - name: Build deployment 🛠
       run: |
-        mv ./css ./src ./fonts index.html main.js ./dist
+        mv ./css ./src ./fonts ./favicon index.html main.js CNAME ./dist
         touch ./dist/.nojekyll
     - name: Deploy to Pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4.4.1
