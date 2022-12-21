@@ -27,8 +27,7 @@ jobs:
         npx webpack
     - name: Create static folder structure 📂
       run: |
-        mkdir css
-        mkdir dist
+        mkdir css dist
     - name: Compile SCSS 🎨
       uses: gha-utilities/sass-build@v0.4.10
       with:
