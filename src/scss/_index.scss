@@ -58,3 +58,57 @@ body > nav {
   align-items: center;
   justify-content: center;
 }
+
+.wave-background {
+  background: linear-gradient(to bottom, #202020, #444);
+  background-size: 100% 200%;
+  -webkit-animation: wave-animation 35s ease infinite;
+  -moz-animation: wave-animation 35s ease infinite;
+  -o-animation: wave-animation 35s ease infinite;
+  animation: wave-animation 35s ease infinite;
+}
+
+@-webkit-keyframes wave-animation {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+@-moz-keyframes wave-animation {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+@-o-keyframes wave-animation {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+@keyframes wave-animation {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}

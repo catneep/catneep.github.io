@@ -6,3 +6,66 @@
     transform: scale(1.2);
   }
 }
+
+// @mixin wave-animation($animation-timing: 15s, $animation-easing: ease) {
+//   background: linear-gradient(to right, #4cb8c4, #3cd3ad);
+//   background-size: 400% 400%;
+//   -webkit-animation: wave-animation $animation-timing $animation-easing infinite;
+//   -moz-animation: wave-animation $animation-timing $animation-easing infinite;
+//   -o-animation: wave-animation $animation-timing $animation-easing infinite;
+//   animation: wave-animation $animation-timing $animation-easing infinite;
+
+//   @-webkit-keyframes wave-animation {
+//     0% {
+//       background-position: 50% 100%;
+//     }
+//     50% {
+//       background-position: 50% 0%;
+//     }
+//     100% {
+//       background-position: 50% 100%;
+//     }
+//   }
+//   @-moz-keyframes wave-animation {
+//     0% {
+//       background-position: 50% 100%;
+//     }
+//     50% {
+//       background-position: 50% 0%;
+//     }
+//     100% {
+//       background-position: 50% 100%;
+//     }
+//   }
+//   @-o-keyframes wave-animation {
+//     0% {
+//       background-position: 50% 100%;
+//     }
+//     50% {
+//       background-position: 50% 0%;
+//     }
+//     100% {
+//       background-position: 50% 100%;
+//     }
+//   }
+//   @keyframes wave-animation {
+//     0% {
+//       background-position: 50% 100%;
+//     }
+//     50% {
+//       background-position: 50% 0%;
+//     }
+//     100% {
+//       background-position: 50% 100%;
+//     }
+//   }
+// }
+
+// .wave-background {
+//   @include wave-animation();
+// }
+
+// OR
+// .custom-wave-background {
+//   @include wave-animation(10s, linear);
+// }
