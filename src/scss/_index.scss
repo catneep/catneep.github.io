@@ -1,6 +1,8 @@
 @import "mixins/animations";
 @import "mixins/styles";
 
+$blobTime: 17s;
+
 #title-and-nav {
   display: flex;
   flex-wrap: wrap;
@@ -41,6 +43,10 @@ nav > ul {
   }
 }
 
+svg{
+  transform: scale(1.2);
+}
+
 body > header,
 body > nav {
   display: flex;
@@ -57,4 +63,68 @@ body > nav {
   overflow: hidden;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  header#logo > h1 {
+    font-size: 2.8em;
+  }
+
+  svg{
+    transform: scale(2);
+  }
+}
+
+.wave-background {
+  background: linear-gradient(to bottom, #202020, #444);
+  background-size: 100% 200%;
+  -webkit-animation: wave-animation $blobTime ease infinite;
+  -moz-animation: wave-animation $blobTime ease infinite;
+  -o-animation: wave-animation $blobTime ease infinite;
+  animation: wave-animation $blobTime ease infinite;
+}
+
+@-webkit-keyframes wave-animation {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+@-moz-keyframes wave-animation {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+@-o-keyframes wave-animation {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+@keyframes wave-animation {
+  0% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
 }
