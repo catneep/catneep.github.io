@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>havila.dev</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+    html {
+      font-size: 140%;
+    }
+    html, body{
+      top: 0;
+      left: 0;
+      padding: 0;
+      margin: 0;
+      background-color: #1f1f1f;
+      color: #efefef;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      font-size: 2rem;
+      padding: 0.3rem 0.8rem;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      background-color: transparent;
+    }
+
+    button > span {
+      color: #efefef;
+      transition: 0.4s;
+    }
+
+    button > span:hover {
+      color: #838383;
+    }
+
+    a {
+      text-decoration: none;
+      color: #efefef;
+    }
+    a:visited { color: inherit; }
+
+    header {
+      cursor: default;
+      font-size: 2rem;
+      font-weight: 100;
+    }
+
+    main {
+      min-height: 90vh;
+      max-height: 100vh;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    section {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 0px 0px;
+    }
+
+    section > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hidden { opacity: 0; }
+
+    #current {
+      text-align: center;
+      justify-content: center;
+      transition: 0.4s;
+    }
+    #current:hover {
+      font-size: 1.2rem;
+    }
+
+    #languageCont {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      margin: 0.4rem;
+    }
+    
+    select#language { padding: 0.2rem; }
+
+    @media screen and (max-width: 700px) {
+      #current:hover { font-size: inherit !important;}
+    }
+  </style>
+  <script>
+    const locale = navigator.language || navigator.userLanguage;
+
+    const linkData = {
+      entries: [
+        {
+          href: 'mailto:contact@havila.dev',
+          en: 'Web Development',
+          es: 'Desarrollo Web',
+        },
+        {
+          href: 'https://www.fraktalmusic.com',
+          en: 'Audio Production & Publishing',
+          es: 'Producción y Distribución de Audio',
+        },
+        {
+          href: 'mailto:contact@havila.dev',
+          en: 'Web Hosting',
+          es: 'Hosting Web',
+        },
+      ]
+    }
+
+    let index = 0;
+    let manuallyClicked = false;
+    let currentLanguage = locale.startsWith('es') ? 'es' : 'en';
+
+    const setContent = async (target, contentArray, index) => {
+      target.classList.add('hidden');
+      await setTimeout(()=>{
+        target.innerHTML  =  `<a href="${contentArray[index].href}" target="_blank" rel="noopener noreferrer">
+            ${currentLanguage === 'es' ? contentArray[index].es : contentArray[index].en}
+          </a>`;
+      }, 400);
+      await setTimeout(() => {
+        target.classList.remove('hidden');
+      }, 400);
+    }
+
+    const cycleContent = (contentArray) => {
+      const target = document.getElementById("current");
+      if (!target || !Array.isArray(contentArray) || contentArray.length === 0) return;
+
+      setInterval(() => {
+        if (manuallyClicked){
+          manuallyClicked = false;
+          return;
+        }
+        index = (index + 1) % contentArray.length;
+        setContent(target, contentArray, index);
+      }, 3200);
+    }
+
+    const setStart = (contentArray) => {
+      const target = document.getElementById("current");
+      if (!target || !Array.isArray(contentArray) || contentArray.length === 0) return;
+      target.innerHTML  =  `<a href="${contentArray[0].href}" target="_blank" rel="noopener noreferrer">
+        ${currentLanguage === 'es' ? contentArray[0].es : contentArray[0].en}
+      </a>`;
+    }
+
+    const next = () => {
+      manuallyClicked = true;
+      const target = document.getElementById("current");
+      index = (index + 1) % linkData.entries.length;
+      setContent(target, linkData.entries, index);
+    }
+
+    const last = () => {
+      manuallyClicked = true;
+      const target = document.getElementById("current");
+      index = index - 1 < 0 ? linkData.entries.length - 1 : index - 1;
+      setContent(target, linkData.entries, index);
+    }
+
+    const setDefaultLocale = () => {
+      const enOption = document.getElementById("languageEn");
+      const esOption = document.getElementById("languageEs");
+
+      if (currentLanguage == 'es') {
+        enOption.selected = false;
+        esOption.selected = true;
+      }
+    }
+
+    const setLanguageListener = () => {
+      const selectElement = document.getElementById('language');
+      if (!selectElement) {
+        console.error(`No select element found with ID: ${selectId}`);
+        return;
+      }
+
+      selectElement.addEventListener('change', function () {
+        const old = currentLanguage;
+        currentLanguage = this.value;
+        if (old !== currentLanguage) next();
+      });
+    }
+
+  </script>
+</head>
+<body>
+  <main>
+    <header>
+      HAVILA.DEV
+    </header>
+    <section>
+      <div>
+        <button onclick="last()">
+          <span>
+            ⮜
+          </span>
+        </button>
+      </div>
+      <div id="current">
+      </div>
+      <div>
+        <button onclick="next()">
+          <span>
+            ⮞
+          </span>
+        </button>
+      </div>
+    </section>
+  </main>
+  <div id="languageCont">
+    <select name="language" id="language">
+      <option value="en" id="languageEn" selected>🇬🇧 EN</option>
+      <option value="es" id="languageEs">🇲🇽 ES</option>
+    </select>
+  </div>
+
+  <script defer>
+    setLanguageListener();
+    setDefaultLocale();
+    setStart(linkData.entries);
+    cycleContent(linkData.entries);
+  </script>
+</body>
+</html>
